@@ -15,7 +15,16 @@ countdownElement.textContent = timeLeft;
 function updateCountdown(){
     timeLeft--;
     countdownElement.textContent = timeLeft;
+    if (timeLeft === 0) {
+        clearInterval(countdownInterval);
+        numberListElement.innerHTML = '';
+        answersFormElement.classList.remove('d-none');
+        instructionsElement.textContent = 'inserisci i numeri che ricordi';
+    }
 }
+const countdownInterval = setInterval(updateCountdown, 1000)
+
+
 
 
 
@@ -40,4 +49,3 @@ for (let i = 0; i < randomNumbers.length; i++){
 
 console.log(numberListElement);
 
-setInterval(updateCountdown, 1000);
