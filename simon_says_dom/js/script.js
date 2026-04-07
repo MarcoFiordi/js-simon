@@ -1,13 +1,23 @@
 'use strict'
 
 const countdownElement = document.querySelector('#countdown');
-const instructionsElement = document.querySelector('#instruction');
+const instructionsElement = document.querySelector('#instructions');
 const numberListElement = document.querySelector('#numbers-list');
 const answersFormElement = document.querySelector('#answers-form');
 const inputElements = document.querySelectorAll('#input-group input');
 const messageElement = document.querySelector('#message');
 
 const randomNumbers = [];
+
+let timeLeft = 30
+countdownElement.textContent = timeLeft;
+
+function updateCountdown(){
+    timeLeft--;
+    countdownElement.textContent = timeLeft;
+}
+
+
 
 
 
@@ -29,3 +39,5 @@ for (let i = 0; i < randomNumbers.length; i++){
 }
 
 console.log(numberListElement);
+
+setInterval(updateCountdown, 1000);
